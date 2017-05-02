@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "UIView+CDMEmpty.h"
 
 @interface ViewController ()
 
@@ -16,6 +17,23 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
+    self.view.backgroundColor = [UIColor whiteColor];
+    // 网络错误时,展示错误页
+    [self.view showNetErrorPageView];
+    [self.view configReloadAction:^{
+        
+        NSLog(@"刷新");
+    }];
+    //隐藏网络错误页
+    //  [self.view hideNetErrorPageView];
+    
+    //
+    //    //无数据展示空白页
+    //    [self.view showBlankPageView];
+    //    //无数据隐藏空白页
+    //    [self.view hideBlankPageView];
     // Do any additional setup after loading the view, typically from a nib.
 }
 
